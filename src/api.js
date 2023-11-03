@@ -4,6 +4,10 @@ const bodyParser = require("body-parser");
 
 const https = require("https");
 
+const serverless = require("serverless-http");
+
+const router = express.Router();
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -57,6 +61,9 @@ app.post("/", function (req, res) {
   request.end();
 });
 
-app.listen('.netlify/functions/api || 3000', function () {
-  console.log(" Server is running on port 3000");
-});
+// app.listen('.netlify/functions/api || 3000', function () {
+//   console.log(" Server is running on port 3000");
+// });
+app.use('.netlify/functions/api', router);
+
+module.exports.handler =serverless(app);
