@@ -36,8 +36,9 @@ app.post("/", function (req, res) {
   const url = "https://us12.api.mailchimp.com/3.0/lists/1057fd1ec5";
 
   const options = {
+    
     method: "POST",
-    auth: "Tevea:8305c4fd2b86daeaea470dcdf6700c63-us12",
+    auth: "Tevea:d9d156a317d577a260502f03e6c473ad-us12",
   };
 
   const request = https.request(url, options, function (response) {
